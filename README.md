@@ -1,6 +1,7 @@
 # SOC 2 Evidence Collector
 
 A SOC 2 compliance automation tool with a live React dashboard. Lambda functions automatically collect evidence from your AWS account, map each finding to a specific SOC 2 Trust Service Criteria control, and store everything in DynamoDB. The React frontend displays a compliance dashboard showing pass/fail/warn status per control with drill-down evidence views. The entire stack deploys automatically via a GitHub Actions CI/CD pipeline on every push, Terraform provisions all backend infrastructure, then the pipeline builds and deploys the React app to S3.
+> **Note on CloudFront:** This project was originally designed to use **AWS CloudFront** as a CDN layer in front of the S3 static website, providing HTTPS, global edge caching, and cache invalidation on every CI/CD deployment. However, new AWS accounts require manual verification before CloudFront distributions can be created. While awaiting approval, the React frontend is served directly from S3 static website hosting over HTTP. Once CloudFront access is granted, re-enabling it requires only uncommenting the CloudFront resource block in `terraform/main.tf` and adding a cache invalidation step to the GitHub Actions workflow — all other infrastructure remains unchanged.
 
 ---
 
