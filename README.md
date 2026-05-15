@@ -8,6 +8,7 @@ A SOC 2 compliance automation tool with a live React dashboard. Lambda functions
 ## Live Demo
 
 **[View Live Dashboard →](http://soc2-evidence-collector-frontend-c8c748ca.s3-website.us-east-2.amazonaws.com/)**
+> **Note:** Evidence collection covers AWS-native controls (IAM, CloudTrail, S3, CloudWatch). A production SOC 2 tool would extend this to third-party services (GitHub branch protection, Slack audit logs, GSuite) via their respective APIs, the Lambda collector is designed as a modular pipeline where additional evidence sources can be added without changing the storage or dashboard layer.
 
 ---
 
